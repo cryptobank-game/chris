@@ -21,7 +21,7 @@
             left: 20px;
             top: 20px;
             display: flex;
-            flex-direction: column; /* Alterado para coluna */
+            flex-direction: column;
             gap: 15px;
             z-index: 100;
         }
@@ -200,34 +200,40 @@
     </style>
 </head>
 <body>
-    <!-- Painel de controle na esquerda - MODIFICADO para vertical -->
+    <!-- Painel de controle na esquerda -->
     <div class="control-panel">
         <div class="control-item">
-            <div class="control-circle" id="circle1" style="background-image: url('https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png')"></div>
-            <div class="control-value" id="value1">50</div>
-        </div>
-        <div class="control-item">
-            <div class="control-circle" id="circle2" style="background-image: url('https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png')"></div>
-            <div class="control-value" id="value2">25</div>
+            <div class="control-circle" id="circle1" style="background-image: url('https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png')"></div>
+            <div class="control-value" id="value1">150</div>
         </div>
     </div>
 
     <!-- Container principal -->
     <div class="container">
-        <h1>Roleta de Baixo Risco</h1>
+        <h1>Roleta de Médio Risco</h1>
        
-        <!-- Mural com 10 resultados -->
+        <!-- Mural com 20 resultados -->
         <div class="mural">
-            <div class="resultado" data-value="3">+3</div>
+            <div class="resultado" data-value="-12">-12</div>
+            <div class="resultado" data-value="7">+7</div>
+            <div class="resultado" data-value="8">+8</div>
+            <div class="resultado" data-value="-7">-7</div>
+            <div class="resultado" data-value="10">+10</div>
+            <div class="resultado" data-value="11">+11</div>
+            <div class="resultado" data-value="-10">-10</div>
+            <div class="resultado" data-value="13">+13</div>
+            <div class="resultado" data-value="14">+14</div>
+            <div class="resultado" data-value="-13">-13</div>
+            <div class="resultado" data-value="-6">-6</div>
+            <div class="resultado" data-value="9">+9</div>
+            <div class="resultado" data-value="-15">-15</div>
+            <div class="resultado" data-value="-9">-9</div>
+            <div class="resultado" data-value="12">+12</div>
+            <div class="resultado" data-value="-11">-11</div>
             <div class="resultado" data-value="6">+6</div>
-            <div class="resultado" data-value="-3">-3</div>
-            <div class="resultado" data-value="2">+2</div>
-            <div class="resultado" data-value="-1">-1</div>
-            <div class="resultado" data-value="1">+1</div>
-            <div class="resultado" data-value="-2">-2</div>
-            <div class="resultado" data-value="-4">-4</div>
-            <div class="resultado" data-value="5">+5</div>
-            <div class="resultado" data-value="4">+4</div>
+            <div class="resultado" data-value="15">+15</div>
+            <div class="resultado" data-value="-14">-14</div>
+            <div class="resultado" data-value="-8">-8</div>
         </div>
        
         <!-- Botão de sorteio -->
@@ -239,92 +245,82 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Array com os links das imagens que você quer usar
-            // ADICIONE AQUI SEUS PRÓPRIOS LINKS DE IMAGENS
-            const imageUrls = [
+            // Array com 40 links de imagens de criptomoedas (você pode personalizar)
+            const cryptoImages = [
                 'https://images.vexels.com/media/users/3/266057/isolated/preview/658492f2c5ab9c1cf7dd6902eaf54932-icone-de-dinheiro-de-moeda-de-sinal-bitcoin.png',
                 'https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png',
-                'https://cdn3d.iconscout.com/3d/premium/thumb/solana-4437052-3684819.png?f=webp',
+                'https://png.pngtree.com/png-clipart/20230817/original/pngtree-solana-sol-cryptocurrency-symbol-depicted-on-a-plain-white-backdrop-vector-picture-image_10957910.png',
                 'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
                 'https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png',
                 'https://images.vexels.com/media/users/3/266057/isolated/preview/658492f2c5ab9c1cf7dd6902eaf54932-icone-de-dinheiro-de-moeda-de-sinal-bitcoin.png',
                 'https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png',
-                'https://cdn3d.iconscout.com/3d/premium/thumb/solana-4437052-3684819.png?f=webp',
+                'https://png.pngtree.com/png-clipart/20230817/original/pngtree-solana-sol-cryptocurrency-symbol-depicted-on-a-plain-white-backdrop-vector-picture-image_10957910.png',
                 'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
                 'https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png',
                 'https://images.vexels.com/media/users/3/266057/isolated/preview/658492f2c5ab9c1cf7dd6902eaf54932-icone-de-dinheiro-de-moeda-de-sinal-bitcoin.png',
                 'https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png',
-                'https://cdn3d.iconscout.com/3d/premium/thumb/solana-4437052-3684819.png?f=webp',
+                'https://png.pngtree.com/png-clipart/20230817/original/pngtree-solana-sol-cryptocurrency-symbol-depicted-on-a-plain-white-backdrop-vector-picture-image_10957910.png',
+                'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
+                'https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png',
+                'https://images.vexels.com/media/users/3/266057/isolated/preview/658492f2c5ab9c1cf7dd6902eaf54932-icone-de-dinheiro-de-moeda-de-sinal-bitcoin.png',
+                'https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png',
+                'https://png.pngtree.com/png-clipart/20230817/original/pngtree-solana-sol-cryptocurrency-symbol-depicted-on-a-plain-white-backdrop-vector-picture-image_10957910.png',
+                'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
+                'https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png',
+                'https://images.vexels.com/media/users/3/266057/isolated/preview/658492f2c5ab9c1cf7dd6902eaf54932-icone-de-dinheiro-de-moeda-de-sinal-bitcoin.png',
+                'https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png',
+                'https://png.pngtree.com/png-clipart/20230817/original/pngtree-solana-sol-cryptocurrency-symbol-depicted-on-a-plain-white-backdrop-vector-picture-image_10957910.png',
+                'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
+                'https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png',
+                'https://images.vexels.com/media/users/3/266057/isolated/preview/658492f2c5ab9c1cf7dd6902eaf54932-icone-de-dinheiro-de-moeda-de-sinal-bitcoin.png',
+                'https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png',
+                'https://png.pngtree.com/png-clipart/20230817/original/pngtree-solana-sol-cryptocurrency-symbol-depicted-on-a-plain-white-backdrop-vector-picture-image_10957910.png',
+                'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
+                'https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png',
+                'https://images.vexels.com/media/users/3/266057/isolated/preview/658492f2c5ab9c1cf7dd6902eaf54932-icone-de-dinheiro-de-moeda-de-sinal-bitcoin.png',
+                'https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png',
+                'https://png.pngtree.com/png-clipart/20230817/original/pngtree-solana-sol-cryptocurrency-symbol-depicted-on-a-plain-white-backdrop-vector-picture-image_10957910.png',
+                'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
+                'https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png',
+                'https://images.vexels.com/media/users/3/266057/isolated/preview/658492f2c5ab9c1cf7dd6902eaf54932-icone-de-dinheiro-de-moeda-de-sinal-bitcoin.png',
+                'https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png',
+                'https://png.pngtree.com/png-clipart/20230817/original/pngtree-solana-sol-cryptocurrency-symbol-depicted-on-a-plain-white-backdrop-vector-picture-image_10957910.png',
                 'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
                 'https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png'
             ];
 
-            // Função para criar os círculos flutuantes
+            // Função para criar 40 círculos flutuantes
             function createFloatingImages() {
                 const container = document.body;
-                const totalCircles = 100; // Total de círculos flutuantes
                 
-                for (let i = 0; i < totalCircles; i++) {
-                    // Seleciona uma imagem aleatória do array
-                    const randomImageIndex = Math.floor(Math.random() * imageUrls.length);
-                    const url = imageUrls[randomImageIndex];
-                    
-                    const size = Math.floor(Math.random() * 30) + 30; // Tamanho entre 30 e 60px
-                    const left = Math.floor(Math.random() * 100); // Posição horizontal 0-100%
-                    const delay = Math.random() * 20; // Atraso inicial
-                    const duration = 15 + Math.random() * 15; // Duração entre 15-30s
-                    const opacity = 0.4 + Math.random() * 0.4; // Opacidade entre 0.4-0.8
+                for (let i = 0; i < 40; i++) {
+                    const size = Math.floor(Math.random() * 50) + 30; // Tamanho entre 30-80px
+                    const left = Math.floor(Math.random() * 90) + 5; // Posição horizontal 5-95%
+                    const delay = Math.random() * 30; // Atraso inicial aleatório
+                    const duration = 10 + Math.random() * 20; // Duração entre 10-30s
+                    const imageIndex = i % cryptoImages.length; // Seleciona imagem do array
                     
                     const img = document.createElement('div');
                     img.className = 'floating-image';
-                    img.style.backgroundImage = `url('${url}')`;
+                    img.style.backgroundImage = `url('${cryptoImages[imageIndex]}')`;
                     img.style.width = `${size}px`;
                     img.style.height = `${size}px`;
                     img.style.left = `${left}%`;
                     img.style.animationDelay = `${delay}s`;
                     img.style.animationDuration = `${duration}s`;
-                    img.style.opacity = opacity;
-                    
-                    // Adiciona um pequeno deslocamento horizontal na animação
-                    const translateX = -20 + Math.random() * 40; // Entre -20px e 20px
-                    img.style.animationName = `floatDown${i}`;
-                    
-                    // Cria uma animação única para cada círculo
-                    const style = document.createElement('style');
-                    style.innerHTML = `
-                        @keyframes floatDown${i} {
-                            0% {
-                                transform: translateY(-100px) translateX(0) rotate(0deg);
-                                opacity: 0;
-                            }
-                            10% {
-                                opacity: ${opacity};
-                            }
-                            90% {
-                                opacity: ${opacity};
-                            }
-                            100% {
-                                transform: translateY(100vh) translateX(${translateX}px) rotate(360deg);
-                                opacity: 0;
-                            }
-                        }
-                    `;
-                    document.head.appendChild(style);
                     
                     container.insertBefore(img, container.firstChild);
                 }
             }
 
-            // Chamada para criar as imagens flutuantes
+            // Chamada para criar as 40 imagens flutuantes
             createFloatingImages();
 
             const resultados = document.querySelectorAll('.resultado');
             const sortearBtn = document.getElementById('sortearBtn');
             const resultadoFinal = document.getElementById('resultadoFinal');
             const circle1 = document.getElementById('circle1');
-            const circle2 = document.getElementById('circle2');
             const value1 = document.getElementById('value1');
-            const value2 = document.getElementById('value2');
 
             // Variável para armazenar o último valor sorteado
             let ultimoValorSorteado = 0;
@@ -332,11 +328,14 @@
             // Função para fazer vários números piscarem antes de selecionar o resultado
             function animacaoPreSorteio(callback) {
                 let count = 0;
-                const maxBlinks = 12;
+                const maxBlinks = 15;
                 const interval = 100;
                
                 const blinkInterval = setInterval(() => {
+                    // Remove a classe blink de todos
                     resultados.forEach(r => r.classList.remove('blink'));
+                    
+                    // Seleciona um resultado aleatório para piscar
                     const randomIndex = Math.floor(Math.random() * resultados.length);
                     resultados[randomIndex].classList.add('blink');
                    
@@ -345,6 +344,7 @@
                     if (count >= maxBlinks) {
                         clearInterval(blinkInterval);
                         setTimeout(() => {
+                            // Remove a classe blink de todos no final
                             resultados.forEach(r => r.classList.remove('blink'));
                             callback();
                         }, interval);
@@ -354,54 +354,53 @@
            
             // Função para sortear um resultado
             function sortearResultado() {
-                sortearBtn.disabled = true;
-                resultadoFinal.textContent = 'Sorteando...';
-                resultadoFinal.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+    sortearBtn.disabled = true;
+    resultadoFinal.textContent = 'Sorteando...';
+    resultadoFinal.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
 
-                // Remove classes de resultado anterior
-                resultados.forEach(resultado => {
-                    resultado.classList.remove('positive', 'negative');
-                });
+    // Remove classes de resultado anterior
+    resultados.forEach(resultado => {
+        resultado.classList.remove('positive', 'negative');
+    });
 
-                // Inicia a animação de pré-sorteio
-                animacaoPreSorteio(() => {
-                    // Aqui, ajustamos a probabilidade para 60% positivo e 40% negativo
-                    const probabilidadePositivo = Math.random();
-                    const positivoChance = 0.6; // 60%
-                    let resultadoSorteado;
-                    let valor;
+    // Inicia a animação de pré-sorteio
+    animacaoPreSorteio(() => {
+        // Aqui, decidimos se será negativo ou positivo com 50% de chance
+        const isNegative = Math.random() < 0.5; // 50% chance
+        let resultadoSorteado;
+        let valor;
 
-                    if (probabilidadePositivo < positivoChance) {
-                        // Seleciona um resultado positivo
-                        const positivos = Array.from(resultados).filter(r => parseInt(r.dataset.value) > 0);
-                        const randomIndex = Math.floor(Math.random() * positivos.length);
-                        resultadoSorteado = positivos[randomIndex];
-                        valor = parseInt(resultadoSorteado.dataset.value);
-                    } else {
-                        // Seleciona um resultado negativo
-                        const negativos = Array.from(resultados).filter(r => parseInt(r.dataset.value) < 0);
-                        const randomIndex = Math.floor(Math.random() * negativos.length);
-                        resultadoSorteado = negativos[randomIndex];
-                        valor = parseInt(resultadoSorteado.dataset.value);
-                    }
+        if (isNegative) {
+            // Seleciona um resultado negativo
+            const negativos = Array.from(resultados).filter(r => parseInt(r.dataset.value) < 0);
+            const randomIndex = Math.floor(Math.random() * negativos.length);
+            resultadoSorteado = negativos[randomIndex];
+            valor = parseInt(resultadoSorteado.dataset.value);
+        } else {
+            // Seleciona um resultado positivo
+            const positivos = Array.from(resultados).filter(r => parseInt(r.dataset.value) > 0);
+            const randomIndex = Math.floor(Math.random() * positivos.length);
+            resultadoSorteado = positivos[randomIndex];
+            valor = parseInt(resultadoSorteado.dataset.value);
+        }
 
-                    ultimoValorSorteado = valor;
+        ultimoValorSorteado = valor;
 
-                    // Adiciona a classe de acordo com o resultado
-                    if (valor > 0) {
-                        resultadoSorteado.classList.add('positive');
-                        resultadoFinal.textContent = `🎉 Resultado Positivo: +${valor}`;
-                        resultadoFinal.style.backgroundColor = 'rgba(76, 175, 80, 0.3)';
-                    } else {
-                        resultadoSorteado.classList.add('negative');
-                        resultadoFinal.textContent = `⚠️ Resultado Negativo: ${valor}`;
-                        resultadoFinal.style.backgroundColor = 'rgba(244, 67, 54, 0.3)';
-                    }
+        // Adiciona a classe de acordo com o resultado
+        if (valor > 0) {
+            resultadoSorteado.classList.add('positive');
+            resultadoFinal.textContent = `🎉 Resultado Positivo: +${valor}`;
+            resultadoFinal.style.backgroundColor = 'rgba(76, 175, 80, 0.3)';
+        } else {
+            resultadoSorteado.classList.add('negative');
+            resultadoFinal.textContent = `⚠️ Resultado Negativo: ${valor}`;
+            resultadoFinal.style.backgroundColor = 'rgba(244, 67, 54, 0.3)';
+        }
 
-                    // Habilita o botão novamente
-                    sortearBtn.disabled = false;
-                });
-            }
+        // Habilita o botão novamente
+        sortearBtn.disabled = false;
+    });
+}
 
             // Função para atualizar os valores ao clicar nos círculos
             function atualizarValor(elementoValor, valor) {
@@ -424,12 +423,6 @@
                     atualizarValor(value1, ultimoValorSorteado);
                 }
             });
-
-            circle2.addEventListener('click', () => {
-                if (ultimoValorSorteado !== 0) {
-                    atualizarValor(value2, ultimoValorSorteado);
-                }
-            });
            
             // Evento de clique no botão de sorteio
             sortearBtn.addEventListener('click', sortearResultado);
@@ -437,3 +430,5 @@
     </script>
 </body>
 </html>
+
+
