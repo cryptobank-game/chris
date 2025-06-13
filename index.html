@@ -55,7 +55,7 @@
             min-width: 60px;
         }
 
-        /* Restante do seu CSS existente... */
+        /* Estilo para os círculos flutuantes */
         .floating-image {
             position: absolute;
             border-radius: 50%;
@@ -240,45 +240,21 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Array com os links das imagens que você quer usar
+            // ADICIONE AQUI SEUS PRÓPRIOS LINKS DE IMAGENS
             const imageUrls = [
                 'https://images.vexels.com/media/users/3/266057/isolated/preview/658492f2c5ab9c1cf7dd6902eaf54932-icone-de-dinheiro-de-moeda-de-sinal-bitcoin.png',
                 'https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png',
-                'https://png.pngtree.com/png-clipart/20230817/original/pngtree-solana-sol-cryptocurrency-symbol-depicted-on-a-plain-white-backdrop-vector-picture-image_10957910.png',
+                'https://cdn3d.iconscout.com/3d/premium/thumb/solana-4437052-3684819.png?f=webp',
                 'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
                 'https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png',
                 'https://images.vexels.com/media/users/3/266057/isolated/preview/658492f2c5ab9c1cf7dd6902eaf54932-icone-de-dinheiro-de-moeda-de-sinal-bitcoin.png',
                 'https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png',
-                'https://png.pngtree.com/png-clipart/20230817/original/pngtree-solana-sol-cryptocurrency-symbol-depicted-on-a-plain-white-backdrop-vector-picture-image_10957910.png',
+                'https://cdn3d.iconscout.com/3d/premium/thumb/solana-4437052-3684819.png?f=webp',
                 'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
                 'https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png',
                 'https://images.vexels.com/media/users/3/266057/isolated/preview/658492f2c5ab9c1cf7dd6902eaf54932-icone-de-dinheiro-de-moeda-de-sinal-bitcoin.png',
                 'https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png',
-                'https://png.pngtree.com/png-clipart/20230817/original/pngtree-solana-sol-cryptocurrency-symbol-depicted-on-a-plain-white-backdrop-vector-picture-image_10957910.png',
-                'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
-                'https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png',
-                'https://images.vexels.com/media/users/3/266057/isolated/preview/658492f2c5ab9c1cf7dd6902eaf54932-icone-de-dinheiro-de-moeda-de-sinal-bitcoin.png',
-                'https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png',
-                'https://png.pngtree.com/png-clipart/20230817/original/pngtree-solana-sol-cryptocurrency-symbol-depicted-on-a-plain-white-backdrop-vector-picture-image_10957910.png',
-                'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
-                'https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png',
-                'https://images.vexels.com/media/users/3/266057/isolated/preview/658492f2c5ab9c1cf7dd6902eaf54932-icone-de-dinheiro-de-moeda-de-sinal-bitcoin.png',
-                'https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png',
-                'https://png.pngtree.com/png-clipart/20230817/original/pngtree-solana-sol-cryptocurrency-symbol-depicted-on-a-plain-white-backdrop-vector-picture-image_10957910.png',
-                'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
-                'https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png',
-                'https://images.vexels.com/media/users/3/266057/isolated/preview/658492f2c5ab9c1cf7dd6902eaf54932-icone-de-dinheiro-de-moeda-de-sinal-bitcoin.png',
-                'https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png',
-                'https://png.pngtree.com/png-clipart/20230817/original/pngtree-solana-sol-cryptocurrency-symbol-depicted-on-a-plain-white-backdrop-vector-picture-image_10957910.png',
-                'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
-                'https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png',
-                'https://images.vexels.com/media/users/3/266057/isolated/preview/658492f2c5ab9c1cf7dd6902eaf54932-icone-de-dinheiro-de-moeda-de-sinal-bitcoin.png',
-                'https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png',
-                'https://png.pngtree.com/png-clipart/20230817/original/pngtree-solana-sol-cryptocurrency-symbol-depicted-on-a-plain-white-backdrop-vector-picture-image_10957910.png',
-                'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
-                'https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png',
-                'https://images.vexels.com/media/users/3/266057/isolated/preview/658492f2c5ab9c1cf7dd6902eaf54932-icone-de-dinheiro-de-moeda-de-sinal-bitcoin.png',
-                'https://www.citypng.com/public/uploads/preview/hd-dogecoin-crypto-coin-png-701751695051848gsrsqxblqc.png',
-                'https://png.pngtree.com/png-clipart/20230817/original/pngtree-solana-sol-cryptocurrency-symbol-depicted-on-a-plain-white-backdrop-vector-picture-image_10957910.png',
+                'https://cdn3d.iconscout.com/3d/premium/thumb/solana-4437052-3684819.png?f=webp',
                 'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
                 'https://static-00.iconduck.com/assets.00/xrp-cryptocurrency-icon-2048x2048-2a0bicgj.png'
             ];
@@ -286,12 +262,18 @@
             // Função para criar os círculos flutuantes
             function createFloatingImages() {
                 const container = document.body;
+                const totalCircles = 100; // Total de círculos flutuantes
                 
-                imageUrls.forEach((url, index) => {
-                    const size = Math.floor(Math.random() * 30) + 55;
-                    const left = Math.floor(Math.random() * 90) + 5;
-                    const delay = Math.random() * 20;
-                    const duration = 15 + Math.random() * 10;
+                for (let i = 0; i < totalCircles; i++) {
+                    // Seleciona uma imagem aleatória do array
+                    const randomImageIndex = Math.floor(Math.random() * imageUrls.length);
+                    const url = imageUrls[randomImageIndex];
+                    
+                    const size = Math.floor(Math.random() * 30) + 30; // Tamanho entre 30 e 60px
+                    const left = Math.floor(Math.random() * 100); // Posição horizontal 0-100%
+                    const delay = Math.random() * 20; // Atraso inicial
+                    const duration = 15 + Math.random() * 15; // Duração entre 15-30s
+                    const opacity = 0.4 + Math.random() * 0.4; // Opacidade entre 0.4-0.8
                     
                     const img = document.createElement('div');
                     img.className = 'floating-image';
@@ -301,9 +283,36 @@
                     img.style.left = `${left}%`;
                     img.style.animationDelay = `${delay}s`;
                     img.style.animationDuration = `${duration}s`;
+                    img.style.opacity = opacity;
+                    
+                    // Adiciona um pequeno deslocamento horizontal na animação
+                    const translateX = -20 + Math.random() * 40; // Entre -20px e 20px
+                    img.style.animationName = `floatDown${i}`;
+                    
+                    // Cria uma animação única para cada círculo
+                    const style = document.createElement('style');
+                    style.innerHTML = `
+                        @keyframes floatDown${i} {
+                            0% {
+                                transform: translateY(-100px) translateX(0) rotate(0deg);
+                                opacity: 0;
+                            }
+                            10% {
+                                opacity: ${opacity};
+                            }
+                            90% {
+                                opacity: ${opacity};
+                            }
+                            100% {
+                                transform: translateY(100vh) translateX(${translateX}px) rotate(360deg);
+                                opacity: 0;
+                            }
+                        }
+                    `;
+                    document.head.appendChild(style);
                     
                     container.insertBefore(img, container.firstChild);
-                });
+                }
             }
 
             // Chamada para criar as imagens flutuantes
@@ -345,54 +354,54 @@
            
             // Função para sortear um resultado
             function sortearResultado() {
-    sortearBtn.disabled = true;
-    resultadoFinal.textContent = 'Sorteando...';
-    resultadoFinal.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+                sortearBtn.disabled = true;
+                resultadoFinal.textContent = 'Sorteando...';
+                resultadoFinal.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
 
-    // Remove classes de resultado anterior
-    resultados.forEach(resultado => {
-        resultado.classList.remove('positive', 'negative');
-    });
+                // Remove classes de resultado anterior
+                resultados.forEach(resultado => {
+                    resultado.classList.remove('positive', 'negative');
+                });
 
-    // Inicia a animação de pré-sorteio
-    animacaoPreSorteio(() => {
-        // Aqui, ajustamos a probabilidade para 60% positivo e 40% negativo
-        const probabilidadePositivo = Math.random();
-        const positivoChance = 0.6; // 60%
-        let resultadoSorteado;
-        let valor;
+                // Inicia a animação de pré-sorteio
+                animacaoPreSorteio(() => {
+                    // Aqui, ajustamos a probabilidade para 60% positivo e 40% negativo
+                    const probabilidadePositivo = Math.random();
+                    const positivoChance = 0.6; // 60%
+                    let resultadoSorteado;
+                    let valor;
 
-        if (probabilidadePositivo < positivoChance) {
-            // Seleciona um resultado positivo
-            const positivos = Array.from(resultados).filter(r => parseInt(r.dataset.value) > 0);
-            const randomIndex = Math.floor(Math.random() * positivos.length);
-            resultadoSorteado = positivos[randomIndex];
-            valor = parseInt(resultadoSorteado.dataset.value);
-        } else {
-            // Seleciona um resultado negativo
-            const negativos = Array.from(resultados).filter(r => parseInt(r.dataset.value) < 0);
-            const randomIndex = Math.floor(Math.random() * negativos.length);
-            resultadoSorteado = negativos[randomIndex];
-            valor = parseInt(resultadoSorteado.dataset.value);
-        }
+                    if (probabilidadePositivo < positivoChance) {
+                        // Seleciona um resultado positivo
+                        const positivos = Array.from(resultados).filter(r => parseInt(r.dataset.value) > 0);
+                        const randomIndex = Math.floor(Math.random() * positivos.length);
+                        resultadoSorteado = positivos[randomIndex];
+                        valor = parseInt(resultadoSorteado.dataset.value);
+                    } else {
+                        // Seleciona um resultado negativo
+                        const negativos = Array.from(resultados).filter(r => parseInt(r.dataset.value) < 0);
+                        const randomIndex = Math.floor(Math.random() * negativos.length);
+                        resultadoSorteado = negativos[randomIndex];
+                        valor = parseInt(resultadoSorteado.dataset.value);
+                    }
 
-        ultimoValorSorteado = valor;
+                    ultimoValorSorteado = valor;
 
-        // Adiciona a classe de acordo com o resultado
-        if (valor > 0) {
-            resultadoSorteado.classList.add('positive');
-            resultadoFinal.textContent = `🎉 Resultado Positivo: +${valor}`;
-            resultadoFinal.style.backgroundColor = 'rgba(76, 175, 80, 0.3)';
-        } else {
-            resultadoSorteado.classList.add('negative');
-            resultadoFinal.textContent = `⚠️ Resultado Negativo: ${valor}`;
-            resultadoFinal.style.backgroundColor = 'rgba(244, 67, 54, 0.3)';
-        }
+                    // Adiciona a classe de acordo com o resultado
+                    if (valor > 0) {
+                        resultadoSorteado.classList.add('positive');
+                        resultadoFinal.textContent = `🎉 Resultado Positivo: +${valor}`;
+                        resultadoFinal.style.backgroundColor = 'rgba(76, 175, 80, 0.3)';
+                    } else {
+                        resultadoSorteado.classList.add('negative');
+                        resultadoFinal.textContent = `⚠️ Resultado Negativo: ${valor}`;
+                        resultadoFinal.style.backgroundColor = 'rgba(244, 67, 54, 0.3)';
+                    }
 
-        // Habilita o botão novamente
-        sortearBtn.disabled = false;
-    });
-}
+                    // Habilita o botão novamente
+                    sortearBtn.disabled = false;
+                });
+            }
 
             // Função para atualizar os valores ao clicar nos círculos
             function atualizarValor(elementoValor, valor) {
